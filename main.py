@@ -1,6 +1,7 @@
-from typing import Dict, List, Mapping
+from typing import Dict, List
 import zlib
 from nameko.rpc import rpc
+
 
 class InvictusTestService:
     name = "invt_service"
@@ -13,11 +14,11 @@ class InvictusTestService:
 
     @rpc
     def square_odds(self, in_list: List[int]) -> List[int]:
-        return list(map(lambda n: n if n%2 == 0 else n**2, in_list))
+        return list(map(lambda n: n if n % 2 == 0 else n**2, in_list))
 
     @rpc
     def compress_list_map(self, in_list: List[str]) -> Dict[str, str]:
-        return dict(zip(in_list,map(self.compress_string, in_list)))
+        return dict(zip(in_list, map(self.compress_string, in_list)))
 
     @rpc
     def decompress_string(self, in_hex_str: str) -> str:
