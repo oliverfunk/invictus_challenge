@@ -105,9 +105,9 @@ Docker was used to containerise the Nameko service, bundling its dependencies in
 
 The built-in standard python compression library zlib was chosen for the string compression task. zlib uses the DEFLATE algorithm for lossless compression, which uses a combination of the LZSS algorithm and Huffman coding.
 
-The zlib library provides a convenient compression/decompression API, which is fast, configurable and can handle large input strings. When used on large input data strings (say base64 encoded images) it can provide compression ratios of between 50% to 25%. It was chosen for these reasons and because it is very well known and well tested. One downside of using zlib is for the smaller test inputs used, the compression can be quite bad or even worse (more data) than the input due to headers being needed.
+The zlib library provides a convenient compression/decompression API, which is fast, configurable and can handle large input strings. When used on large input data strings (say base64 encoded images) it can provide compression ratios of between 50% to 25%[*](https://zlib.net/zlib_tech.html). It was chosen for these reasons and because it is very well known and well tested. One downside of using zlib is for the smaller test inputs used, the compression can be quite bad or even worse (more data) than the input due to headers being needed.
 
 The following compression ratios were achieved for the tested strings:
 
 - 55% reduction for the repetitive string
-- 98% for the lorem string
+- 98% reduction for the lorem string
